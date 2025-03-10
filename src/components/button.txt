@@ -1,0 +1,21 @@
+import { type ComponentPropsWithoutRef } from "react"
+
+type ButtonProps ={
+    element: 'button'
+}& ComponentPropsWithoutRef<'button'>
+type AnchorProps ={
+    element: 'anchor'
+}& ComponentPropsWithoutRef<'a'>
+
+function Button(props: ButtonProps | AnchorProps){
+    if(props.element === 'anchor')
+        return(
+            <a {...props}></a>
+        )
+    return(
+        <button {...props}></button>
+    )
+}
+
+
+export default Button
