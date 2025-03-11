@@ -1,12 +1,13 @@
-import Button from "./components/button"
-import Container from "./components/Container"
+import { useRef } from "react"
+import Input from "./components/Input"
 
 
 function App(){
-  return(
+  const input = useRef<HTMLInputElement>(null)
 
+  return(
       <div>
-        <Container ComponentType={Button} onClick={()=>{console.log('clicked')}}>Add Product</Container>
+        <Input id="title" placeholder="Title" ref={input}></Input>
       </div> 
   )
 }
