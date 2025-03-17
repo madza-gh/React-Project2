@@ -1,11 +1,16 @@
 import AddTimer from "./components/AddTimer"
+import TimersControl from "./components/TimersControl"
+import TimersContextProvider from "./store/timers-context"
 
 
 function App(){
   return(
-    <div>
-      <AddTimer/>
-    </div>
+    <TimersContextProvider>
+      <div>
+        <TimersControl></TimersControl>
+        <AddTimer/>
+      </div>
+    </TimersContextProvider>
   )
   
 }
