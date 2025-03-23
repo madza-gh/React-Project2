@@ -1,15 +1,20 @@
-import Button from "./button"
-import { useTimersContext } from "../store/timers-context"
+import Button from "./button";
+import { useTimersContext } from "../store/timers-context";
 
+function TimersControl() {
+  const timersCtx = useTimersContext();
 
-function TimersControl(){
-    const timersCtx = useTimersContext()
-
-    return(
-        <div>
-            <Button>{timersCtx.isRunning ? 'stop' : 'start'}</Button>
-        </div>
-    )
+  return (
+    <div>
+      <Button
+        onClick={
+          timersCtx.isRunning ? timersCtx.stopTimers : timersCtx.startTimers
+        }
+      >
+        {timersCtx.isRunning ? "stop" : "start"} Timers
+      </Button>
+    </div>
+  );
 }
 
-export default TimersControl
+export default TimersControl;

@@ -1,12 +1,15 @@
+import { useTimersContext } from "../store/timers-context";
 import Input from "./Input";
 import Form from "./Form";
 import Button from "./button";
 
 function AddTimer() {
+  const {addTimers} = useTimersContext()
+
   function handleOnSave(data: unknown) {
     const extractedData = data as { name: string; duration: string };
 
-    console.log(extractedData);
+    addTimers({name: extractedData.name, duration: +extractedData.duration})  
   }
   return (
     <div>
